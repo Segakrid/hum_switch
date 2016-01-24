@@ -21,7 +21,7 @@
 # SOFTWARE.
 import sys
 
-sys.path.append(programmeren/Adafruit_Python_DHT)
+sys.path.append('/programmeren/Adafruit_Python_DHT')
 
 import Adafruit_DHT
 
