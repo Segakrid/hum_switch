@@ -66,7 +66,7 @@ for i in range(5):
         if strftime("%M") in ["00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50"]:
             print strftime("%H.%Mu")
             print "Logging hum/temp..."
-            with open('home/pi/log/hum_bathroom.txt', 'w') as fp:
+            with open('/home/pi/log/hum_bathroom.txt', 'w') as fp:
                 fp.write("{0}: {1}".format(strftime("%D %T"), humidity, temperature))
     else:
         print 'Failed to get reading. Try again!'
