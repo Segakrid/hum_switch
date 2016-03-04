@@ -63,7 +63,7 @@ for i in range(5):
         elif humidity < 50 and fan_status == "uit":
             print "De ventilator blijft {0}".format(fan_status)
 
-        if strftime("%M") in ["00", "10", "20", "30", "40", "50"]:
+        if strftime("%M") in ["00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50"]:
             print strftime("%H.%Mu")
             print "Logging hum/temp..."
             with open('home/pi/log/hum_bathroom.txt', 'w') as fp:
