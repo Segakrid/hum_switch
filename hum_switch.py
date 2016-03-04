@@ -66,7 +66,7 @@ while True: # uncomment when sleep is set to 60 sec
         if strftime("%M") in ["00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55"]:
             print strftime("%H.%Mu")
             print "Logging humidity..."
-            with open('~/log/hum_bathroom.txt', 'a') as fp:
+            with open('/home/pi/log/hum_bathroom.txt', 'a') as fp:
                 fp.write("\n{0}: {1:.2f}".format(strftime("%D %T"), humidity, temperature))
     else:
         print 'Failed to get reading. Try again!'
