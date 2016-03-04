@@ -67,7 +67,7 @@ for i in range(5):
             print strftime("%H.%Mu")
             print "Logging hum/temp..."
             with open('/home/pi/log/hum_bathroom.txt', 'a') as fp:
-                fp.write("{0}: {1}".format(strftime("%D %T"), humidity, temperature))
+                fp.write("{0}: {1}\n".format(strftime("%D %T"), humidity, temperature))
     else:
         print 'Failed to get reading. Try again!'
         sys.exit(1)
