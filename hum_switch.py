@@ -26,8 +26,10 @@ import Adafruit_DHT
 import RPi.GPIO as GPIO
 
 
+GPIO.setmode(GPIO.BCM)
 GPIO.setup(23, GPIO.OUT)
 GPIO.output(23, False)
+
 
 sensor = Adafruit_DHT.DHT22
 pin = 4
