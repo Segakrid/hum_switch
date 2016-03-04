@@ -64,7 +64,9 @@ for i in range(5):
             print "De ventilator blijft {0}".format(fan_status)
 
         if strftime("%M") in ["00", "10", "20", "30", "40", "50"]:
-            with open('~/log/hum_bathroom.txt', 'w') as fp:
+            print strftime("%H.%Mu")
+            print "Logging hum/temp..."
+            with open('home/pi/log/hum_bathroom.txt', 'w') as fp:
                 fp.write("{0}: {1}".format(strftime("%D %T"), humidity, temperature))
     else:
         print 'Failed to get reading. Try again!'
