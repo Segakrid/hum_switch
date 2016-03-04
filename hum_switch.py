@@ -45,8 +45,8 @@ humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
 # guarantee the timing of calls to read the sensor).  
 # If this happens try again!
 
-# while True: # uncomment when sleep is set to 60 sec
-for i in range(5):
+while True: # uncomment when sleep is set to 60 sec
+#for i in range(5):
     humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
     if humidity is not None and temperature is not None:
         print 'Temp={0:0.1f}*  Humidity={1:0.1f}%'.format(temperature, humidity)
@@ -63,13 +63,13 @@ for i in range(5):
         elif humidity < 50 and fan_status == "uit":
             print "De ventilator blijft {0}".format(fan_status)
 
-        if strftime("%M") in ["00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50"]:
+        if strftime("%M") in ["00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55"]:
             print strftime("%H.%Mu")
-            print "Logging hum/temp..."
-            with open('/home/pi/log/hum_bathroom.txt', 'a') as fp:
-                fp.write("{0}: {1}\n".format(strftime("%D %T"), humidity, temperature))
+            print "Logging humidity..."
+            with open('~/log/hum_bathroom.txt', 'a') as fp:
+                fp.write("\n{0}: {1:.2f}".format(strftime("%D %T"), humidity, temperature))
     else:
         print 'Failed to get reading. Try again!'
         sys.exit(1)
-    sleep(3)
+    sleep(60)
 
