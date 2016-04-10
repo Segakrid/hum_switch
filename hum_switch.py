@@ -67,11 +67,11 @@ while True: # uncomment when sleep is set to 60 sec
             print strftime("%H.%Mu")
             print "Logging humidity / temperature..."
             with open('/home/pi/programmeren/hum_switch/log/humidity_bathroom.txt', 'a') as fp:
-                fp.write("\n{0}: {1:.2f}".format(strftime("%D %T"), humidity))
+                fp.write("\n{0}: {1:.1f}".format(strftime("%D %T"), humidity))
             with open('/home/pi/programmeren/hum_switch/log/temperature_bathroom.txt', 'a') as fp:
-                fp.write("\n{0}: {1:.2f}".format(strftime("%D %T"), temperature))
+                fp.write("\n{0}: {1:.1f}".format(strftime("%D %T"), temperature))
     else:
         print 'Failed to get reading. Try again!'
         sys.exit(1)
-    sleep(60)
+    sleep(10)
 
