@@ -34,6 +34,7 @@ GPIO.output(23, False)
 sensor = Adafruit_DHT.DHT22
 pin = 4
 fan_status = "uit"
+last_logging_time = ""
 
 # Try to grab a sensor reading.  Use the read_retry method which will retry up
 # to 15 times to get a sensor reading (waiting 2 seconds between each retry).
@@ -63,9 +64,10 @@ while True: # uncomment when sleep is set to 60 sec
         elif humidity < 50 and fan_status == "uit":
             print "De ventilator blijft {0}".format(fan_status)
 
-        if strftime("%M") in ["00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55"]:
+        if strftime("%M") in ["00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55"] and strftime("%D %T") is not last_logging_time:
             print strftime("%H.%Mu")
             print "Logging humidity / temperature..."
+            last_logging_time = strftime("%D %T")
             with open('/home/pi/programmeren/hum_switch/log/humidity_bathroom.txt', 'a') as fp:
                 fp.write("\n{0}: {1:.1f}".format(strftime("%D %T"), humidity))
             with open('/home/pi/programmeren/hum_switch/log/temperature_bathroom.txt', 'a') as fp:
