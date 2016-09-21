@@ -111,7 +111,8 @@ if __name__ == "__main__":
     while True:
         humidity, temperature = read_sensor(sensor, pin)
         if humidity is not None and temperature is not None:
-            print_data_to_terminal(switch_fan(humidity, temperature, fan_status), humidity, temperature)
+            previous_fan_status, fan_status = switch_fan(humidity, temperature, fan_status)
+            print_data_to_terminal(previous_fan_status, fan_status, humidity, temperature)
         else:
             print 'Failed to get reading. Try again.'
             sys.exit(1)
