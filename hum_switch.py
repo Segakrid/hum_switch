@@ -74,12 +74,12 @@ last_logging_time = ""
 #     sleep(10)
 
 
-def read_sensor(sensor, pin)
+def read_sensor(sensor, pin):
     humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
     return humidity, temperature
 
 
-def switch_fan(humidity, temperature, fan_status)
+def switch_fan(humidity, temperature, fan_status):
     previous_fan_status = fan_status
     if humidity >= switch_percentage and fan_status == "uit":
         GPIO.output(23, True)
@@ -90,7 +90,7 @@ def switch_fan(humidity, temperature, fan_status)
     return previous_fan_status, fan_status
 
 
-def print_data_to_terminal(previous_fan_status, fan_status, humidity, temperature)
+def print_data_to_terminal(previous_fan_status, fan_status, humidity, temperature):
     print 'Humidity={1:0.1f}%  Temp={0:0.1f}*'.format(humidity, temperature)
     if fan_status != previous_fan_status:
         print 'De ventilator is nu {0} gegaan'.format(fan_status)
@@ -98,7 +98,7 @@ def print_data_to_terminal(previous_fan_status, fan_status, humidity, temperatur
         print 'De ventilator blijft {0}.'.format(fan_status)
 
 
-def add_data_to_log()
+def add_data_to_log():
     pass
 
 
