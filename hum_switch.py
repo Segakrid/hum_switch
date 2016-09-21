@@ -102,7 +102,7 @@ def add_data_to_log():
     pass
 
 
-if __name__ == __main__:
+if __name__ == "__main__":
     switch_percentage = 50
     sensor = Adafruit_DHT.DHT22
     pin = 4
