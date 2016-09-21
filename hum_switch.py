@@ -116,5 +116,5 @@ if __name__ == "__main__":
         else:
             print 'Failed to get reading. Try again.'
             sys.exit(1)
-        sleep(10)
+        sleep(3)
 
