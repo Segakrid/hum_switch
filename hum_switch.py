@@ -91,7 +91,7 @@ def switch_fan(humidity, temperature, fan_status):
 
 
 def print_data_to_terminal(previous_fan_status, fan_status, humidity, temperature):
-    print 'Humidity={1:0.1f}%  Temp={0:0.1f}*'.format(humidity, temperature)
+    print 'Humidity={0:0.1f}%  Temp={1:0.1f}*'.format(humidity, temperature)
     if fan_status != previous_fan_status:
         print 'De ventilator is nu {0} gegaan'.format(fan_status)
     elif fan_status == previous_fan_status:
